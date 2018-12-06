@@ -12,6 +12,7 @@ public class Room {
         this.size = size;
         this.beds = beds;
         booked = false;
+        private boolean;
     }
 
     public int getRoomNumber(){
