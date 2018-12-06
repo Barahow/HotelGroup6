@@ -6,6 +6,7 @@ public class Room {
     private  int size;
     private  int beds;
     private  boolean booked;
+    private String = "abdul";
 
     public Room(int roomNumber, int size, int beds){
         this.roomNumber= roomNumber;
