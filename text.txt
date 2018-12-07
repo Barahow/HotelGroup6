@@ -1,23 +1,4 @@
-<<<<<<< HEAD
-this
+jdhfkjsd 
 
+anything
 
-is 
-
-
-a 
-
-new 
-
-
-text
-=======
---
-
----------------
--
----
-
-
-changed
->>>>>>> master
