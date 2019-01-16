@@ -5,13 +5,16 @@ public class Room {
     private int number;
     private boolean bookedStatus;
     private int numberOfBeds;
+    private boolean hasBalcony;
     private double pricePerNight;
 
-    public Room(int number, boolean bookedStatus, int numberOfBeds, double pricePerNight) {
+    public Room(int number, boolean bookedStatus, int numberOfBeds, boolean hasBalcony, double pricePerNight) {
         this.number = number;
         this.bookedStatus = bookedStatus;
         this.numberOfBeds = numberOfBeds;
+        this.hasBalcony = hasBalcony;
         this.pricePerNight = pricePerNight;
+
     }
 
     public int getNumber() {
@@ -46,4 +49,11 @@ public class Room {
         this.pricePerNight = pricePerNight;
     }
 
+    public boolean isHasBalcony() {
+        return hasBalcony;
+    }
+
+    public void setHasBalcony(boolean hasBalcony) {
+        this.hasBalcony = hasBalcony;
+    }
 }
