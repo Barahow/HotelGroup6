@@ -13,24 +13,61 @@ public class Customers {
     }
     
     public void addCustomer() {
-        System.out.println("\nAdd New Customer");
-        System.out.print("Enter customer SSN :: ");
-        String SSN = input.nextLine();
-        System.out.print("Enter customer first name :: ");
-        String firstName = input.nextLine();
-        System.out.print("Enter customer last name :: ");
-        String lastName = input.nextLine();
-        System.out.print("Enter customer address :: ");
-        String address = input.nextLine();
-        System.out.print("Enter customer phone number :: ");
-        String phoneNumber = input.nextLine();
+        Boolean a = true;
+        String firstName = "", lastName = "", SSN = "", phoneNumber = "", address = "";
 
-        // adding new customer to list of customers
+        boolean b = true;
+        boolean c = true;
+        boolean d = true;
+        boolean e = true;
+        String stringChoice;
+        int id=0;
+
+
+        System.out.print("Enter customer's ten digit social security number (YYMMDD-XXXX): ");
+        SSN = input.nextLine();
+
+
+        if (!String.valueOf(SSN.charAt(6)).equals("-") || id != 0 || SSN.length() != 11) {
+            System.out.println("needs to be this format (YYMMDD-XXXX)");
+
+
+
+        } else {
+
+        }
+        if (b) {
+            System.out.print("Enter Customers Firstname: ");
+            firstName = input.nextLine();
+
+        } else {
+            b = false;
+        }
+        if (c) {
+            System.out.print("Enter Customers Lastname:: ");
+            lastName = input.nextLine();
+
+        } else {
+            c = false;
+        }
+        if (d) {
+            System.out.print("Enter Customers Address:: ");
+            address = input.nextLine();
+            System.out.print("Enter customer's Phonenumber: ");
+            phoneNumber = input.nextLine();
+        } else {
+            d = false;
+        }
         customers.add(new Customer(SSN, firstName, lastName, address, phoneNumber));
-        
-        System.out.println("\nCustomer Added!");
-        waitForKeyEnter();
+
+        System.out.println("Customer Added");
     }
+
+
+
+
+
+
 
     public void viewCustomer() {
         System.out.println("\nView Customer Details");
