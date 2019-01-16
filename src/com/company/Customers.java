@@ -10,6 +10,11 @@ public class Customers {
     public Customers() {
         input = new Scanner(System.in);
         customers = new ArrayList<>();
+        // adding customers
+        customers.add(new Customer("19551204-6253","James", "brown","25 street", "0723456245"));
+        customers.add(new Customer("19851204-6253","Daniel","Castro","1 street", "075344424"));
+        customers.add(new Customer("19901204-6253","Sam", "McClain","10 street", "07335668245"));
+
     }
     
     public void addCustomer() {

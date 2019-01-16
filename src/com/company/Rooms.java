@@ -10,6 +10,11 @@ public class Rooms {
     public Rooms() {
         input = new Scanner(System.in);
         rooms = new ArrayList<>();
+        // Adding rooms
+        rooms.add(new Room(5,false,3,100.0));
+        rooms.add(new Room(6,false,1,50.0));
+        rooms.add(new Room(7,false,4,150.0));
+        rooms.add(new Room(8,false,5,200.0));
     }
     
     public void addRoom() {
