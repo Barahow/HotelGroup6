@@ -4,10 +4,20 @@ public class Main {
 
     public static void main(String[] args) {
 
-        HotelRoomReservationSystem hrrs = new HotelRoomReservationSystem();
-        hrrs.showMainMenu();
+        // for logging into the system
+        Login login = new Login();
 
-        System.exit(0);
+        while (true) {
 
+            // display login screen and check if login was successful
+            if (login.showLoginScreen()) {
+
+                // instantiating system
+                HotelRoomReservationSystem hrrs = new HotelRoomReservationSystem();
+
+                // display system main menu
+                hrrs.showMainMenu();
+            }
+        }
     }
 }
