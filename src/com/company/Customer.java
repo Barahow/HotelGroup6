@@ -1,82 +1,59 @@
 package com.company;
 
-
-import java.util.List;
-import java.lang.reflect.Array;
-import java.util.ArrayList;
-
-
 public class Customer {
 
-    private List<Room> list0fRooms;
-    private String name;
-    private String ssn;
-    private int id;
+    private String SSN;
+    private String firstName;
+    private String lastName;
+    private String address;
+    private String phoneNumber;
 
-    public Customer(int id, String name, String ssn) {
-        this.list0fRooms = list0fRooms;
-        this.name = name;
-        this.ssn = ssn;
-        this.id = id;
+    public Customer(String SSN, String firstName, String lastName, String address, String phoneNumber) {
+        this.SSN = SSN;
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.address = address;
+        this.phoneNumber = phoneNumber;
     }
 
-
-    public int addroom(Room r) {
-        this.list0fRooms.add( r );
-
-
-        return count();
-
+    public String getSSN() {
+        return SSN;
     }
 
-    public int count() {
-
-        return this.list0fRooms.size();
-
-
+    public void setSSN(String SSN) {
+        this.SSN = SSN;
     }
 
-    public Room getroom(int index) {
-        if (index < 0 || index >= count()) {
-            return null;
-        }
-        return this.list0fRooms.get( index );
+    public String getFirstName() {
+        return firstName;
     }
 
-
-    public String getName() {
-        return name;
+    public void setFirstName(String firstName) {
+        this.firstName = firstName;
     }
 
-    public String getSsn() {
-        return ssn;
+    public String getLastName() {
+        return lastName;
     }
 
-
-    public void setName(String name) {
-        this.name = name;
+    public void setLastName(String lastName) {
+        this.lastName = lastName;
     }
 
-    public void setSsn(String ssn) {
-        this.ssn = ssn;
+    public String getAddress() {
+        return address;
     }
 
-
-    public int getId() {
-        return id;
+    public void setAddress(String address) {
+        this.address = address;
     }
 
-    public void setid(int id) {
-        this.id = id;
+    public String getPhoneNumber() {
+        return phoneNumber;
     }
 
-    public List<Room> getList0fRooms() {
-        return list0fRooms;
+    public void setPhoneNumber(String phoneNumber) {
+        this.phoneNumber = phoneNumber;
     }
 
-    public void setList0fRooms(List<Room> list0fRooms) {
-        this.list0fRooms = list0fRooms;
-
-
-    }
 }

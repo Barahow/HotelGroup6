@@ -1,39 +1,140 @@
 package com.company;
 
-import java.security.SecureRandom;
 import java.util.ArrayList;
+import java.util.Scanner;
 
 public class Rooms {
-
-    private static SecureRandom rand = new SecureRandom();
-    private static int[] beds = {1, 2};
-    private static double[] price = {1000, 1250, 1500, 2000};
-    private static boolean[] balcony = {true, false};
-    private static final int NUMBER_OF_ROOMS = 25;
-
-    private ArrayList<Room> listOfRooms = new ArrayList<>();
+    private final Scanner input;
+    private final ArrayList<Room> rooms;
 
     public Rooms() {
-        for (int i = 0; i < NUMBER_OF_ROOMS; i++) {
-            listOfRooms.add(new Room(i + 1, beds[rand.nextInt(2)], balcony[rand.nextInt(2)],
-                    price[rand.nextInt(4)]));
+        input = new Scanner(System.in);
+        rooms = new ArrayList<>();
+    }
+    
+    public void addRoom() {
+        System.out.println("\nAdd New Room");
+        System.out.print("Enter room number :: ");
+        int number = Integer.parseInt(input.nextLine());
+        System.out.print("Enter number of beds in room :: ");
+        int numberOfBeds = Integer.parseInt(input.nextLine());
+        System.out.print("Enter price per night for room :: ");
+        double pricePerNight = Double.parseDouble(input.nextLine());
+
+        // adding new room to list of rooms
+        rooms.add(new Room(number, false, numberOfBeds, pricePerNight));
+        
+        System.out.println("\nRoom Added!");
+        waitForKeyEnter();
+    }
+    
+    public void viewRoom() {
+        System.out.println("\nView Room Details");
+        System.out.print("Enter room number :: ");
+        int number = Integer.parseInt(input.nextLine());
+
+        // searching and getting the room details with the given room number
+        Room room = findRoom(number);
+
+        // if room was found with the given room number
+        if (room != null) {
+            System.out.println("\nRoom number :: " + room.getNumber());
+            System.out.println("Room booked status :: " + room.isBookedStatus());
+            System.out.println("Number of beds :: " + room.getNumberOfBeds());
+            System.out.println("Room price per night :: " + room.getPricePerNight());
         }
+        else
+            System.out.println("\nRoom not found!");
+        waitForKeyEnter();
     }
 
-    public Room get(int index) {
-        return listOfRooms.get(index);
+    public void editRoom() {
+        System.out.println("\nEdit Room Details");
+        System.out.print("Enter room number :: ");
+        int number = Integer.parseInt(input.nextLine());
+
+        // searching and getting the room with the given room number
+        Room room = findRoom(number);
+
+        // if room was found with the given room number
+        if (room != null) {
+	        System.out.print("\nEnter new number of beds in room :: ");
+	        room.setNumberOfBeds(Integer.parseInt(input.nextLine()));
+	        System.out.print("Enter new booked status (T/F) :: ");
+	        room.setBookedStatus(input.nextLine().equalsIgnoreCase("t"));
+	        System.out.print("Enter new price per night for room :: ");
+	        room.setPricePerNight(Double.parseDouble(input.nextLine()));
+            System.out.println("\nRoom Details Updated!");
+        }
+        else
+            System.out.println("\nRoom not found!");
+        waitForKeyEnter();
     }
-    public void remove(int index) {
-        listOfRooms.remove(index);
+	
+    public void deleteRoom() {
+        System.out.println("\nDelete Room");
+        System.out.print("Enter room number :: ");
+        int number = Integer.parseInt(input.nextLine());
+
+        // searching and getting the room with the given room number
+        Room room = findRoom(number);
+
+        // if room was found with the given room number
+        if (room != null) {
+            for (int i = 0; i < rooms.size(); i++) {
+                if (rooms.get(i).getNumber() == number) {
+                    rooms.remove(i);
+                    break;
+                }
+            }
+            System.out.println("\nRoom Deleted!");
+        }
+        else
+            System.out.println("\nRoom not found!");
+        waitForKeyEnter();
     }
-    public void add(Room r) {
-        listOfRooms.add(r);
+	
+    public void viewAllRooms() {
+        System.out.println("\nAll Rooms Details");
+
+        // printing details of each room
+        for (Room room : rooms) {
+            System.out.println("\nRoom number :: " + room.getNumber());
+            System.out.println("Room booked status :: " + room.isBookedStatus());
+            System.out.println("Number of beds :: " + room.getNumberOfBeds());
+            System.out.println("Room price per night :: " + room.getPricePerNight());
+            System.out.println();
+        }
+        waitForKeyEnter();
     }
-    public int size() {
-        return listOfRooms.size();
+	
+    public void viewAllAvailableRooms() {
+        System.out.println("\nAll Available Rooms Details");
+
+        // printing details of each available room
+        for (Room room : rooms) {
+            if (!room.isBookedStatus()) {
+                System.out.println("\nRoom number :: " + room.getNumber());
+                System.out.println("Room booked status :: " + room.isBookedStatus());
+                System.out.println("Number of beds :: " + room.getNumberOfBeds());
+                System.out.println("Room price per night :: " + room.getPricePerNight());
+                System.out.println();
+            }
+        }
+        waitForKeyEnter();
     }
 
-
+    public Room findRoom(int number) {
+        for (Room room : rooms) {
+            if(room.getNumber() == number)
+                return room;
+        }
+        return null;
+    }
+    
+    private void waitForKeyEnter() {
+        System.out.print("Press enter key to continue...");
+        input.nextLine();
+    }
 
 }
-
