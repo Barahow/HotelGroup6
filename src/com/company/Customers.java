@@ -17,7 +17,7 @@ public class Customers {
 
     }
     
-    public void addCustomer() {
+    public Customer addCustomer() {
         Boolean a = true;
         String firstName = "", lastName = "", SSN = "", phoneNumber = "", address = "";
 
@@ -63,9 +63,13 @@ public class Customers {
         } else {
             d = false;
         }
-        customers.add(new Customer(SSN, firstName, lastName, address, phoneNumber));
+        Customer customer = new Customer(SSN, firstName, lastName, address, phoneNumber);
+        customers.add(customer);
 
         System.out.println("Customer Added");
+
+        //return the custom
+        return customer;
     }
 
 

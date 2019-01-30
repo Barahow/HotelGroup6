@@ -17,6 +17,17 @@ public class Rooms {
 
     }
 
+    public ArrayList<Room> getRooms() {
+        return rooms;
+    }
+    public ArrayList<Room> getAvailbleRooms() {
+        ArrayList<Room>availableRooms = new ArrayList<>();
+        for (Room room : rooms)
+            if (!room.isBookedStatus())
+                availableRooms.add(room);
+
+        return availableRooms;
+    }
 
     public void addRoom() {
         int number = 0;

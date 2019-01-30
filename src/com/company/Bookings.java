@@ -8,11 +8,21 @@ import java.util.Scanner;
 
 public class Bookings {
     private final Scanner input;
-    private final ArrayList<Booking> bookings;
+    //you can't mark it final or you won't be able to add a booking later on
+    private  ArrayList<Booking> bookings;
 
     public Bookings() {
         input = new Scanner(System.in);
         bookings = new ArrayList<>();
+    }
+
+    //add a booking
+    public void addBooking(Booking booking){
+        this.bookings.add(booking);
+    }
+
+    public ArrayList<Booking> getBookings() {
+        return bookings;
     }
 
     public void searchBooking() {
