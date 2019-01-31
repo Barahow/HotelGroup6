@@ -134,7 +134,7 @@ public class HotelRoomReservationSystem {
     //=CHANGE ME
     private void changeMe(Customer customer) {
         //display all available rooms
-        //make sure room number is unique or you get first occurence
+        //make sure room number is unique or you get first occurrence
         System.out.println("Please select an available room: ");
         for (int i = 0; i < rooms.getAvailbleRooms().size(); i++)
             System.out.printf("Room %d is free\n", rooms.getAvailbleRooms().get(i).getNumber());
@@ -154,22 +154,7 @@ public class HotelRoomReservationSystem {
             }
         }
 
-
-        //if found is false here not match -> do something. Better check before
-
-
-
-
-
-
-        //edit booking details here
-        //I'll just make one, you'll need to do it for the following:
-        // private int bookingNumber; - done
-        //    private Customer customer; - done
-        //    private Room room; - done
-        //    private double stayPrice;
-        //    private Date checkInDate;
-        //    private Date checkOutDate;
+        // Takes input for Booking number
         System.out.print("Booking number #; ");
         int bookingNumber = input.nextInt();
 
@@ -178,11 +163,8 @@ public class HotelRoomReservationSystem {
 
         System.out.printf("Booking %d added for the room %d\n", bookingNumber, selectedRoom.getNumber());
 
-
         //consume new line
         input.nextLine();
-
-
     }
 
     //=CHANGE ME 2
@@ -190,8 +172,6 @@ public class HotelRoomReservationSystem {
         System.out.print("First name of the customer to search?: ");
         String firstName = input.next();
 
-        //pick where to search the customers - within the bookings or within the customers?
-        //i'll search into the bookings as it's a little bit more tedious
         Boolean found = false;
 
         //this one searches inside the booking but you need add a booking first - "Add new customer"
@@ -206,9 +186,6 @@ public class HotelRoomReservationSystem {
             }
         }
 
-
-
-
             //not found
          if (!found)
              System.out.println("No match");
@@ -216,9 +193,7 @@ public class HotelRoomReservationSystem {
         //consume new line
         input.nextLine();
 
-
     }
-
     /**
      * This method displays the booking management options.
      */
